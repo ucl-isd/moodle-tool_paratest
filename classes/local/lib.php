@@ -53,7 +53,7 @@ class lib {
         }
 
         $procs = [];
-        for ($i = 1; $i <= $CFG->phpunit_paraunit_processes; $i++) {
+        for ($i = 0; $i <= $CFG->phpunit_paraunit_processes; $i++) {
             $phpexec = empty($CFG->pathtophp) ? 'php' : $CFG->pathtophp;
             $pathtoinitscript = dirname(__FILE__) . "/../../../phpunit/cli/init.php";
             $procs[] = proc_open("export TEST_TOKEN=$i && $phpexec $pathtoinitscript", [STDIN, STDOUT, STDOUT], $unused);
